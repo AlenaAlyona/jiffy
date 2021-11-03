@@ -1,2 +1,12 @@
+.main-page {
+  min-height: 100vh;
+  padding: 5vh 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-
+.title {
+  margin: 0;
+  font-size: 24px;
+}
