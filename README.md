@@ -1,3 +1,12 @@
+# Jiffy
+
+Currently in development stage.
+
+This project is made as a part of SuperHi coure <em>Advanced CSS + Javascript</em><br/>
+It was quite some time ago when I last worked with React, so I decided to dust off my knoweldge.
+
+I'm planning on making 2 branches this time and deploy each on netlify.<br/> As practice showed, after deploying on netlify some things can behave or look differently from what you've seen in your app when you ran it locally.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
