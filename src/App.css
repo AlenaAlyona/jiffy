@@ -6,6 +6,33 @@
   justify-content: space-between;
 }
 
+.top,
+.middle,
+.indicators {
+  text-align: center;
+  position: relative;
+}
+
+input {
+  font-size: 72px;
+  width: calc(100vw - 4rem);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+  text-align: center;
+}
+
+input,
+textarea {
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+}
+
+.search-input::placeholder {
+  color: #323232;
+}
+
 .title {
   margin: 0;
   font-size: 24px;
