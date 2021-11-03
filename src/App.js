@@ -5,16 +5,16 @@ import clearButton from "./assets/close.svg";
 function App() {
   return (
     <div className="main-page">
-      <div class="top">
-        <h1 class="title">Jiffy</h1>
+      <div className="top">
+        <h1 className="title">Jiffy</h1>
         <a href="/" class="search-clear">
           <img src={clearButton} alt="close button" />
         </a>
       </div>
 
-      <div class="middle">
-        <input class="search-input" placeholder="Type something" />
-        <div class="videos"></div>
+      <div className="middle">
+        <input className="search-input" placeholder="Type something" />
+        <div className="videos"></div>
       </div>
 
       <div class="indicators">
