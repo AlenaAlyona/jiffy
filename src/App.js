@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import loader from "./assets/oval.svg";
 import clearButton from "./assets/close.svg";
+import Gif from "./components/Gif";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -69,7 +70,9 @@ function App() {
           value={searchText}
           onChange={handleChange}
         />
-        <div className="videos"></div>
+        {gifs.map((gif) => (
+          <Gif {...gif} key={gif.id} />
+        ))}
       </div>
 
       <div className="indicators">
