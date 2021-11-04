@@ -13,6 +13,30 @@
   position: relative;
 }
 
+.title {
+  margin: 0;
+}
+
+.spinner {
+  display: block;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.middle {
+  margin: auto;
+}
+
+.indicators {
+  text-align: center;
+  font-size: 24px;
+  line-height: 38px;
+  min-height: 38px;
+}
+
 input {
   font-size: 72px;
   width: calc(100vw - 4rem);
@@ -36,4 +60,57 @@ textarea {
 .title {
   margin: 0;
   font-size: 24px;
+}
+
+.grid {
+  display: grid;
+  place-items: center;
+}
+
+.grid-item,
+.search-input {
+  grid-area: 1/1;
+}
+
+.video {
+  background-color: #000;
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  max-height: 480px;
+  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.68);
+  opacity: 0;
+  transform: scale(0) rotate(0deg);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  outline: 1px solid transparent;
+}
+
+.loaded {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.loaded:nth-of-type(2n) {
+  transform: scale(1) rotate(5deg);
+}
+
+.loaded:nth-of-type(3n) {
+  transform: scale(1) rotate(-5deg);
+}
+
+.loaded:nth-of-type(4n) {
+  transform: scale(1) rotate(7deg);
+}
+
+@media (max-width: 480px) {
+  .indicators,
+  .title {
+    font-size: 18px;
+  }
+  .main-page {
+    padding: 2rem;
+  }
+  .input {
+    font-size: 36px;
+  }
 }

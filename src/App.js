@@ -63,7 +63,7 @@ function App() {
         </a>
       </div>
 
-      <div className="middle">
+      <div className="middle grid">
         <input
           className="search-input"
           placeholder="Type something"
@@ -77,7 +77,7 @@ function App() {
 
       <div className="indicators">
         {loading ? (
-          <img className="spinner" src={loader} alt="loading spinner" />
+          <img className="spinner mx-auto" src={loader} alt="loading spinner" />
         ) : (
           hintText
         )}

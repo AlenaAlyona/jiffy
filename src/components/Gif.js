@@ -5,6 +5,7 @@ function Gif(props) {
 
   return (
     <video
+      className={`grid-item video ${loaded && "loaded"}`}
       autoPlay
       loop
       src={props.images.original.mp4}
