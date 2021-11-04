@@ -6,6 +6,7 @@ import Gif from "./components/Gif";
 
 function App() {
   const [loading, setLoading] = useState(false);
+  const [gifLoading, setGifLoading] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [hintText, setHintText] = useState("");
   const [gifs, setGifs] = useState([]);
@@ -28,8 +29,9 @@ function App() {
           throw new Error(`Nothing found for ${searchText}`);
         }
         const randomGif = randomChoice(response.data);
-        setGifs((gifs) => [...gifs, randomGif]);
         setHintText(`Hit enter to see more ${searchText}`);
+        setGifs((gifs) => [...gifs, randomGif]);
+        setGifLoading(true);
       } catch (error) {
         setHintText(`Nothing found for ${searchText}`);
         console.error(error);
@@ -87,13 +89,28 @@ function App() {
           type="text"
           ref={textInput}
         />
-        {gifs.map((gif) => (
-          <Gif {...gif} key={gif.id} />
-        ))}
+        {!gifLoading
+          ? gifs.map((gif, index) => {
+              return <Gif {...gif} key={index} />;
+            })
+          : gifs.map((gif, index) => {
+              if (index === gifs.length - 1) {
+                return (
+                  <Gif
+                    {...gif}
+                    key={index}
+                    gifLoaded={() => {
+                      setGifLoading(false);
+                    }}
+                  />
+                );
+              }
+              return <Gif {...gif} key={index} />;
+            })}
       </div>
 
       <div className="indicators">
-        {loading ? (
+        {loading || gifLoading ? (
           <img className="spinner mx-auto" src={loader} alt="loading spinner" />
         ) : (
           hintText

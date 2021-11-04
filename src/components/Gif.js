@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Gif(props) {
-  const [loaded, setLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!loading && props.gifLoaded) {
+      props.gifLoaded(loading);
+    }
+  }, [props, loading]);
 
   return (
     <video
-      className={`grid-item video ${loaded && "loaded"}`}
+      className={`grid-item video ${!loading && "loaded"}`}
       autoPlay
       loop
       src={props.images.original.mp4}
-      onLoadedData={() => setLoaded(true)}
+      onCanPlayThrough={() => setLoading(false)}
     />
   );
 }
