@@ -54,12 +54,19 @@ function App() {
     setHintText(value.length > 2 ? `Hit enter to search ${value}` : "");
   }
 
+  function clearSearch(event) {
+    event.preventDefault();
+    setSearchText("");
+    setHintText("");
+    setGifs([]);
+  }
+
   return (
     <div className="main-page">
       <div className="top">
         <h1 className="title">Jiffy</h1>
         <a href="/" className="search-clear">
-          <img src={clearButton} alt="close button" />
+          <img src={clearButton} onClick={clearSearch} alt="close button" />
         </a>
       </div>
 
