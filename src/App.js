@@ -26,8 +26,8 @@ function App() {
           setHintText(`Nothing found for ${searchText}`);
           throw new Error(`Nothing found for ${searchText}`);
         }
-        const oneGif = randomChoice(response.data);
-        setGifs((gifs) => [...gifs, oneGif]);
+        const randomGif = randomChoice(response.data);
+        setGifs((gifs) => [...gifs, randomGif]);
         setHintText(`Hit enter to see more ${searchText}`);
       } catch (error) {
         setHintText(`Nothing found for ${searchText}`);
