@@ -7,7 +7,7 @@ function App() {
     <div className="main-page">
       <div className="top">
         <h1 className="title">Jiffy</h1>
-        <a href="/" class="search-clear">
+        <a href="/" className="search-clear">
           <img src={clearButton} alt="close button" />
         </a>
       </div>
@@ -17,9 +17,9 @@ function App() {
         <div className="videos"></div>
       </div>
 
-      <div class="indicators">
-        <img class="spinner" src={loader} alt="loading spinner" />
-        <span class="search-hint">Hit enter to search</span>
+      <div className="indicators">
+        <img className="spinner" src={loader} alt="loading spinner" />
+        <span className="search-hint">Hit enter to search</span>
       </div>
     </div>
   );
