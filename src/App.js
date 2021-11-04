@@ -64,10 +64,16 @@ function App() {
   return (
     <div className="main-page">
       <div className="top">
-        <h1 className="title">Jiffy</h1>
-        <a href="/" className="search-clear">
-          <img src={clearButton} onClick={clearSearch} alt="close button" />
-        </a>
+        {gifs.length > 0 ? (
+          <img
+            className="clear-button"
+            src={clearButton}
+            onClick={clearSearch}
+            alt="Clear Search Buttom"
+          />
+        ) : (
+          <h1 className="title">Jiffy</h1>
+        )}
       </div>
 
       <div className="middle grid">
