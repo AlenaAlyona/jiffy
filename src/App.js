@@ -74,8 +74,11 @@ function App() {
       </div>
 
       <div className="indicators">
-        <img className="spinner" src={loader} alt="loading spinner" />
-        <span className="search-hint">Hit enter to search</span>
+        {loading ? (
+          <img className="spinner" src={loader} alt="loading spinner" />
+        ) : (
+          hintText
+        )}
       </div>
     </div>
   );
