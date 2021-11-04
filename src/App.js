@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import loader from "./assets/oval.svg";
 import clearButton from "./assets/close.svg";
@@ -9,6 +9,7 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const [hintText, setHintText] = useState("");
   const [gifs, setGifs] = useState([]);
+  const textInput = useRef(null);
 
   function randomChoice(arr) {
     const randomIndex = Math.floor(Math.random() * arr.length);
@@ -59,6 +60,7 @@ function App() {
     setSearchText("");
     setHintText("");
     setGifs([]);
+    textInput.current.focus();
   }
 
   return (
@@ -82,6 +84,8 @@ function App() {
           placeholder="Type something"
           value={searchText}
           onChange={handleChange}
+          type="text"
+          ref={textInput}
         />
         {gifs.map((gif) => (
           <Gif {...gif} key={gif.id} />
