@@ -19,7 +19,7 @@ function App() {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchText}&limit=25&offset=0&rating=PG&lang=en`
+          `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchText}&limit=50&offset=0&rating=PG-13&lang=en`
         ).then((r) => r.json());
         console.log("RESPONSE", response);
         if (!response.data.length) {
