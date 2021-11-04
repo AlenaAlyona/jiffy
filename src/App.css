@@ -17,6 +17,10 @@
   margin: 0;
 }
 
+.clear-button {
+  cursor: pointer;
+}
+
 .spinner {
   display: block;
 }
