@@ -55,6 +55,13 @@ function App() {
     }
   }
 
+  function fetchOnClick(event) {
+    if (gifs.length > 0 && !gifLoading && !loading) {
+      event.preventDefault();
+      fetchGifs();
+    }
+  }
+
   function escapeListener(event) {
     if (event.key === "Escape") {
       console.log("ESCAPE IS HIT");
@@ -115,7 +122,7 @@ function App() {
         />
         {!gifLoading
           ? gifs.map((gif, index) => {
-              return <Gif {...gif} key={index} />;
+              return <Gif {...gif} key={index} fetchOnClick={fetchOnClick} />;
             })
           : gifs.map((gif, index) => {
               if (index === gifs.length - 1) {
