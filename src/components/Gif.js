@@ -14,6 +14,8 @@ function Gif(props) {
       className={`grid-item video ${!loading && "loaded"}`}
       autoPlay
       loop
+      playsInline
+      muted
       src={props.images.original.mp4}
       onCanPlayThrough={() => setLoading(false)}
     />
