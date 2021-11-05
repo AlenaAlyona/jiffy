@@ -95,6 +95,7 @@ function App() {
           onChange={handleChange}
           type="text"
           ref={textInput}
+          disabled={loading || gifLoading}
         />
         {!gifLoading
           ? gifs.map((gif, index) => {
