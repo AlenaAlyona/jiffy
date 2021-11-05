@@ -39,8 +39,12 @@ function App() {
         setLoading(false);
       }
     }
+
     function listener(event) {
-      if (event.code === "Enter" || event.code === "NumpadEnter") {
+      if (
+        searchText.length > 1 &&
+        (event.code === "Enter" || event.code === "NumpadEnter")
+      ) {
         event.preventDefault();
         fetchGifs();
       }
