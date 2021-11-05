@@ -56,8 +56,10 @@ function App() {
   }
 
   function fetchOnClick(event) {
+    console.log("CLICK");
     if (gifs.length > 0 && !gifLoading && !loading) {
       event.preventDefault();
+      console.log("FETCH IN PROGRESS");
       fetchGifs();
     }
   }
