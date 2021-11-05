@@ -29,7 +29,7 @@ function App() {
         throw new Error(`Nothing found for ${searchText}`);
       }
       const randomGif = randomChoice(response.data);
-      setHintText(`Hit enter to see more ${searchText}`);
+      setHintText(`Hit enter or click on a gif to see more ${searchText}`);
       setGifs((gifs) => [...gifs, randomGif]);
       setGifLoading(true);
     } catch (error) {
