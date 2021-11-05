@@ -75,6 +75,10 @@ function App() {
   useEffect(() => {
     document.addEventListener("keydown", enterListener);
     document.addEventListener("keyup", escapeListener);
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
     return () => {
       document.removeEventListener("keydown", enterListener);
       document.removeEventListener("keyup", escapeListener);
