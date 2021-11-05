@@ -58,7 +58,7 @@ function App() {
   function handleChange(event) {
     const { value } = event.target;
     setSearchText(value);
-    setHintText(value.length > 2 ? `Hit enter to search ${value}` : "");
+    setHintText(value.length > 1 ? `Hit enter to search ${value}` : "");
   }
 
   function clearSearch(event) {
