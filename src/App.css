@@ -13,8 +13,17 @@
   position: relative;
 }
 
-.clear-button {
+button {
+  background: none;
+  border: none;
   cursor: pointer;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
 }
 
 .spinner {

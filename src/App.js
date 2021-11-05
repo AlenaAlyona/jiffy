@@ -101,13 +101,14 @@ function App() {
   return (
     <div className="main-page">
       <div className="top">
-        {gifs.length > 0 && !loading && !gifLoading ? (
-          <img
-            className="clear-button"
-            src={clearButton}
-            onClick={clearSearch}
-            alt="Clear Search Buttom"
-          />
+        {gifs.length > 0 ? (
+          <button disabled={loading || gifLoading}>
+            <img
+              onClick={clearSearch}
+              src={clearButton}
+              alt="Clear Search Buttom"
+            />
+          </button>
         ) : (
           <h1 className="title">Jiffy</h1>
         )}
