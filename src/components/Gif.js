@@ -18,6 +18,7 @@ function Gif(props) {
       muted
       src={props.images.original.mp4}
       onCanPlayThrough={() => setLoading(false)}
+      onClick={props.fetchOnClick}
     />
   );
 }
