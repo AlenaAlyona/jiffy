@@ -39,6 +39,13 @@ function App() {
     }
   }
 
+  function fetchOnClick(event) {
+    if (gifs.length > 0 && !gifLoading && !loading) {
+      event.preventDefault();
+      fetchGifs();
+    }
+  }
+
   function enterListener(event) {
     if (
       searchText.length > 1 &&
@@ -46,13 +53,6 @@ function App() {
       !loading &&
       (event.key === "Enter" || event.key === "NumpadEnter")
     ) {
-      event.preventDefault();
-      fetchGifs();
-    }
-  }
-
-  function fetchOnClick(event) {
-    if (gifs.length > 0 && !gifLoading && !loading) {
       event.preventDefault();
       fetchGifs();
     }
