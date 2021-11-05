@@ -1,5 +1,5 @@
 .main-page {
-  min-height: 100vh;
+  height: 100vh;
   padding: 5vh 2rem;
   display: flex;
   flex-direction: column;
@@ -117,7 +117,7 @@ textarea {
     font-size: 18px;
   }
   .main-page {
-    padding: 2rem;
+    height: 95vh;
   }
   input {
     font-size: 36px;
