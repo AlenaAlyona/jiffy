@@ -1,6 +1,6 @@
 .main-page {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
+  position: fixed;
+  height: 100%;
   padding: 5vh 2rem;
   display: flex;
   flex-direction: column;
