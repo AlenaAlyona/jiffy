@@ -39,22 +39,30 @@ function App() {
     }
   }
 
-  function listener(event) {
+  function enterListener(event) {
     if (
       searchText.length > 1 &&
       !gifLoading &&
       !loading &&
-      (event.code === "Enter" || event.code === "NumpadEnter")
+      (event.key === "Enter" || event.key === "NumpadEnter")
     ) {
       event.preventDefault();
       fetchGifs();
     }
   }
 
+  function escapeListener(event) {
+    if (gifs.length > 0 && !gifLoading && !loading && event.key === "Escape") {
+      clearSearch(event);
+    }
+  }
+
   useEffect(() => {
-    document.addEventListener("keydown", listener);
+    document.addEventListener("keydown", enterListener);
+    document.addEventListener("keyup", escapeListener);
     return () => {
-      document.removeEventListener("keydown", listener);
+      document.removeEventListener("keydown", enterListener);
+      document.removeEventListener("keyup", escapeListener);
     };
   });
 
