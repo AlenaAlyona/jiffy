@@ -75,7 +75,7 @@ function App() {
   return (
     <div className="main-page">
       <div className="top">
-        {gifs.length > 0 ? (
+        {gifs.length > 0 && !loading && !gifLoading ? (
           <img
             className="clear-button"
             src={clearButton}
