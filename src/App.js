@@ -20,6 +20,7 @@ function App() {
   async function fetchGifs() {
     try {
       setLoading(true);
+      console.log("GET REQUEST IS SENT");
       const response = await fetch(
         `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchText}&limit=50&offset=0&rating=PG-13&lang=en`
       ).then((r) => r.json());
@@ -40,6 +41,9 @@ function App() {
   }
 
   function enterListener(event) {
+    if (event.key === "Enter") {
+      console.log("ENTER IS HIT");
+    }
     if (
       searchText.length > 1 &&
       !gifLoading &&
@@ -52,6 +56,9 @@ function App() {
   }
 
   function escapeListener(event) {
+    if (event.key === "Escape") {
+      console.log("ESCAPE IS HIT");
+    }
     if (gifs.length > 0 && !gifLoading && !loading && event.key === "Escape") {
       clearSearch(event);
     }
@@ -77,6 +84,7 @@ function App() {
     setSearchText("");
     setHintText("");
     setGifs([]);
+    console.log("SEARCH IS CLEARED");
     textInput.current.focus();
   }
 
