@@ -20,19 +20,19 @@ Initially this project was made by using pure JS, CSS and DOM manipulation. You 
 
 It was interesting to learn how can you achieve such result without using any frameworks, but I had another goal:
 
-It was quite some time ago when I last worked with React, so I decided to dust off my knowledge. Plus it was interesting to make this project includes not only content rendering, but also data fetching.
+It was quite some time ago when I last worked with React, so I decided to dust off my knowledge. Plus it was interesting to make this project as it includes not only content rendering, but also data fetching.
 
 following improvements have been made:
 
 :tiger: <strong>loading states for fetching and rendering gifs</strong> <br/>
 initially spinner was shown only for fetching gifs.
-If the user's connection is good, then they might barely notice it, but in case of poor connection the user saw the following: 1) fetching started => spinner is shown 2) fetching is done => spinner is hidden, hint is shown: "hit to see more..." although gif src is still loading and hasn't been rendered
+If the user's connection is good, then they might barely notice it, but in case of poor connection the user saw the following: 1) fetching started => spinner is shown 2) fetching is done => spinner is hidden, hint is shown: "hit to see more..." although gif src is still loading and hasn't been rendered.<br/>
 Such a situation might flood the API with GET requests and then all of a sudden render everything at once (since we show gifs on top of each other, there's no use in fetching them all at once if the user can't see them in the end. They see only the last fetched)
 
 :rabbit: <strong>clear search conditionally</strong> <br/>
-initially the user could clear the search at any moment, no matter what loading state was.
-Let's imagine a situation: the user starts looking for a gif, but loading is taking a while, then they hit <em>clear search button</em>. Even though visually it seems like search is cleared, fetching is still going and it will render that last gif when it's done loading.
-To avoid such situations, I added conditional where we check loading states and length of fetched gifs. Also I wrapped the image inside the button tag, since it's easier to disable the button and add different cursor styles (pointer and not-allowed).
+initially the user could clear the search at any moment, no matter what loading state was.<br/>
+Let's imagine a situation: the user starts looking for a gif, but loading is taking a while, then they hit <em>clear search button</em>. Even though visually it seems like search is cleared, fetching is still going and it will render that last gif when it's done loading.<br/>
+To avoid such situations, I added a conditional where we check loading states and length of fetched gifs. Also I wrapped the image inside the button tag, since it's easier to disable the button and add different cursor styles (pointer and not-allowed).
 
 :pig: <strong>trigger fetching by clicking on a loaded gif</strong> <br/>
 before fetching was triggered only by hitting enter. If the user accesses the app on their mobile, they can download only one gif (since gifs stack on top of input). To make this app mobile friendlier I've added a trigger on click. This solution also required a small change in displaying hint text.
