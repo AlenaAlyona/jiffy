@@ -5,7 +5,7 @@ function Gif(props) {
 
   useEffect(() => {
     if (!loading && props.gifLoaded) {
-      props.gifLoaded(loading);
+      props.gifLoaded();
     }
   }, [props, loading]);
 
