@@ -67,7 +67,7 @@ function App() {
     if (event.key === "Escape") {
       console.log("ESCAPE IS HIT");
     }
-    if (gifs.length > 0 && !gifLoading && !loading && event.key === "Escape") {
+    if (event.key === "Escape") {
       clearSearch(event);
     }
   }
@@ -88,12 +88,14 @@ function App() {
   }
 
   function clearSearch(event) {
-    event.preventDefault();
-    setSearchText("");
-    setHintText("");
-    setGifs([]);
-    console.log("SEARCH IS CLEARED");
-    textInput.current.focus();
+    if (gifs.length > 0 && !loading && !gifLoading) {
+      event.preventDefault();
+      setSearchText("");
+      setHintText("");
+      setGifs([]);
+      console.log("SEARCH IS CLEARED");
+      textInput.current.focus();
+    }
   }
 
   return (
