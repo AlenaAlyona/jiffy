@@ -17,43 +17,46 @@ function App() {
     return arr[randomIndex];
   }
 
-  useEffect(() => {
-    async function fetchGifs() {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchText}&limit=50&offset=0&rating=PG-13&lang=en`
-        ).then((r) => r.json());
-        if (!response.data.length) {
-          setHintText(`Nothing found for ${searchText}`);
-          throw new Error(`Nothing found for ${searchText}`);
-        }
-        const randomGif = randomChoice(response.data);
-        setHintText(`Hit enter to see more ${searchText}`);
-        setGifs((gifs) => [...gifs, randomGif]);
-        setGifLoading(true);
-      } catch (error) {
+  async function fetchGifs() {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchText}&limit=50&offset=0&rating=PG-13&lang=en`
+      ).then((r) => r.json());
+      if (!response.data.length) {
         setHintText(`Nothing found for ${searchText}`);
-        console.error(error);
-      } finally {
-        setLoading(false);
+        throw new Error(`Nothing found for ${searchText}`);
       }
+      const randomGif = randomChoice(response.data);
+      setHintText(`Hit enter to see more ${searchText}`);
+      setGifs((gifs) => [...gifs, randomGif]);
+      setGifLoading(true);
+    } catch (error) {
+      setHintText(`Nothing found for ${searchText}`);
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
+  }
 
-    function listener(event) {
-      if (
-        searchText.length > 1 &&
-        (event.code === "Enter" || event.code === "NumpadEnter")
-      ) {
-        event.preventDefault();
-        fetchGifs();
-      }
+  function listener(event) {
+    if (
+      searchText.length > 1 &&
+      !gifLoading &&
+      !loading &&
+      (event.code === "Enter" || event.code === "NumpadEnter")
+    ) {
+      event.preventDefault();
+      fetchGifs();
     }
+  }
+
+  useEffect(() => {
     document.addEventListener("keydown", listener);
     return () => {
       document.removeEventListener("keydown", listener);
     };
-  }, [searchText]);
+  });
 
   function handleChange(event) {
     const { value } = event.target;
